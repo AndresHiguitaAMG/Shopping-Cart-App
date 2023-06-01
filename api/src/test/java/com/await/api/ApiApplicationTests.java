@@ -1,10 +1,10 @@
-package com.await.backend.shoppingcartapp.backend.shoppingcartapp;
+package com.await.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendShoppingcartappApplicationTests {
+class ApiApplicationTests {
 
 	@Test
 	void contextLoads() {

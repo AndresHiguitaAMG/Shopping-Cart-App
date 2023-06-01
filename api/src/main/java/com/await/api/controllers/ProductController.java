@@ -1,7 +1,7 @@
-package com.await.backend.shoppingcartapp.backend.shoppingcartapp.controllers;
+package com.await.api.controllers;
 
-import com.await.backend.shoppingcartapp.backend.shoppingcartapp.models.entities.Product;
-import com.await.backend.shoppingcartapp.backend.shoppingcartapp.services.ProductService;
+import com.await.api.models.entities.Product;
+import com.await.api.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

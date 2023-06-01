@@ -1,4 +1,4 @@
-package com.await.backend.shoppingcartapp.backend.shoppingcartapp.models.entities;
+package com.await.api.models.entities;
 
 import jakarta.persistence.*;
 
