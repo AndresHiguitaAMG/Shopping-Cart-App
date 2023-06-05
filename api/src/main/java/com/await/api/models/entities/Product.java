@@ -3,7 +3,7 @@ package com.await.api.models.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table("products")
+@Table(name="products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
