@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getProduct } from "../services/productServices";
 import { ProductCardView } from "./ProductCardView";
 
-export const CatalogView = ({ handleAddProductCart }) => {
+// eslint-disable-next-line react/prop-types
+export const CatalogView = ({ onHandlerAddProductCart}) => {
     const [ products, setProducts ] = useState([]);
     
     useEffect(() => {
@@ -20,7 +21,7 @@ export const CatalogView = ({ handleAddProductCart }) => {
                 name={prod.name}
                 description={prod.description}
                 price={prod.price}
-                handleAddProductCart={handleAddProductCart}
+                onHandlerAddProductCart={onHandlerAddProductCart}
             />
         </div>
         ))}

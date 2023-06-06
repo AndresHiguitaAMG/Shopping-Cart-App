@@ -1,5 +1,21 @@
+import { useEffect, useState } from "react";
+import { calculateTotal } from "../services/productServices";
+
 /* eslint-disable react/prop-types */
-export const CartView = ({ cartItems }) => {
+export const CartView = ({ cartItems, onHandlerDeleteProductCart }) => {
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        setTotal(calculateTotal(cartItems));
+        sessionStorage.setItem("cart", JSON.stringify(cartItems));
+    }, [cartItems]);
+    
+    
+    const onHandlerDeleteProduct = (id) => {
+        console.log("eliminar")
+        onHandlerDeleteProductCart(id);
+    }
+
   return (
     <>
     <h3>Carro de compras</h3>
@@ -21,7 +37,7 @@ export const CartView = ({ cartItems }) => {
                 <td>{item.product.price}</td>
                 <td>{item.quantity}</td>
                 <td>{item.quantity * item.product.price}</td>
-                <td>elimiar</td>
+                <td><button className="btn btn-danger" onClick={() => onHandlerDeleteProduct(item.product.id)}>Eliminar</button></td>
             </tr>
                 ))
             }
@@ -29,7 +45,7 @@ export const CartView = ({ cartItems }) => {
         <tfoot>
             <tr>
                 <td colSpan="3" className="text-end fw-bold">Total</td>
-                <td colSpan="2" className="text-start fw-bold">12345</td>
+                <td colSpan="2" className="text-start fw-bold">{total}</td>
             </tr>
         </tfoot>
         </table>

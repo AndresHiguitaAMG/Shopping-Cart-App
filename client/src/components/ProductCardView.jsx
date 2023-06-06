@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-export const ProductCardView = ({ id, name, description, price, handleAddProductCart }) => {
-    const onAddProduct = (product) => {
+export const ProductCardView = ({ id, name, description, price, onHandlerAddProductCart }) => {    
+    
+    const onHandlerAddProduct = (product) => {
         console.log(product)
-        handleAddProductCart(product);
+        onHandlerAddProductCart(product);
     } 
     
     return (
@@ -12,7 +13,7 @@ export const ProductCardView = ({ id, name, description, price, handleAddProduct
             <h5 className="card-title">{name}</h5>
             <p className="card-text">{description}</p>
             <p className="card-text">{price}</p>
-            <button className="btn btn-primary" onClick={() => onAddProduct({id, name, description, price})}>Agregar</button>
+            <button className="btn btn-primary" onClick={() => onHandlerAddProduct({id, name, description, price})}>Agregar</button>
         </div>
     </div>
     </>
