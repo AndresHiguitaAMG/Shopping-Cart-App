@@ -2,7 +2,7 @@
 export const ProductCardView = ({ id, name, description, price, onHandlerAddProductCart }) => {    
     
     const onHandlerAddProduct = (product) => {
-        console.log(product)
+        // console.log(product)
         onHandlerAddProductCart(product);
     } 
     
