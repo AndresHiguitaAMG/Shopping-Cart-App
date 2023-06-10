@@ -4,14 +4,24 @@ import { ProductCardView } from "./ProductCardView";
 
 // eslint-disable-next-line react/prop-types
 export const CatalogView = ({ onHandlerAddProductCart}) => {
-    const [ products, setProducts ] = useState([]);
-    
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const findAll = async () => {
+      const responseProduct = await getProduct();
+      setProducts(responseProduct);
+      setIsLoading(false);
+    }
+
     useEffect(() => {
-        setProducts(getProduct());
+      findAll();
       }, []);
       
       return (
       <>
+      {
+      isLoading && <div className="alert alert-info">Loading...</div>
+      }
       <div className="row">
         {
         products.map(prod => (
