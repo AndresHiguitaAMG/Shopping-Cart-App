@@ -1,6 +1,8 @@
+import { ADD_PRODUCT_CART, DELETE_PRODUCT_CART, UPDATE_QUANTITY_PRODUCT_CART } from "./itemsActions";
+
 export const itemsReducer = (state = [], action) => {
     switch (action.type) {
-        case "addProductCart":
+        case ADD_PRODUCT_CART:
             
             return [
                 ...state,
@@ -9,9 +11,9 @@ export const itemsReducer = (state = [], action) => {
                     quantity: 1,
                 }
             ];
-        case "updateQuantityProductCart":
+        case UPDATE_QUANTITY_PRODUCT_CART:
             return state.map((i) => {
-                if (i.product.id === action.payload) {
+                if (i.product.id === action.payload.id) {
                     return {
                         ...i,
                         quantity: i.quantity + 1,
@@ -20,10 +22,8 @@ export const itemsReducer = (state = [], action) => {
                 return i;
             })
           
-        case "deleteProductCart":
-            return [
-                ...state.filter((i) => i.product.id !== action.payload),
-            ];    
+        case DELETE_PRODUCT_CART:
+            return state.filter((i) => i.product.id !== action.payload);  
     
         default:
             return state;
