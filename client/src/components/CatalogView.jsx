@@ -38,4 +38,4 @@ export const CatalogView = ({ onHandlerAddProductCart}) => {
     </div> 
     </>
   )
-}
+};

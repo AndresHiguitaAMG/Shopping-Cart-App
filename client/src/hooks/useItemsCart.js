@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useReducer } from "react";
 import { itemsReducer } from "../reducer/itemsReducer";
-import { ADD_PRODUCT_CART, DELETE_PRODUCT_CART, UPDATE_QUANTITY_PRODUCT_CART } from "../reducer/itemsActions";
+import { AddProductCart, DeleteProductCart, UpdateQuantityProductCart } from "../reducer/itemsActions";
 
 const initialCartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
 
@@ -10,18 +10,18 @@ export const userItemsCart = () => {
 
     useEffect(() => {
         sessionStorage.setItem("cart", JSON.stringify(cartItems));
-    }, [cartItems]);
+    }, [cartItems]); //Aquí mantenemos actualizado el sessionStorage
 
     const onHandlerAddProductCart = (product) => {
         const hasItem = cartItems.find((i) => i.product.id === product.id);
         if (hasItem) {
             dispatch({
-                type: UPDATE_QUANTITY_PRODUCT_CART,
+                type: UpdateQuantityProductCart,
                 payload: product,
             });
         } else {
             dispatch({
-                type: ADD_PRODUCT_CART,
+                type: AddProductCart,
                 payload: product,
             });
         }
@@ -29,7 +29,7 @@ export const userItemsCart = () => {
 
     const onHandlerDeleteProductCart = (id) => {
         dispatch({
-            type: DELETE_PRODUCT_CART,
+            type: DeleteProductCart,
             payload: id,
         });
     }

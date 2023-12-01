@@ -8,7 +8,7 @@ export const CartRoutes = ({ onHandlerAddProductCart, onHandlerDeleteProductCart
   <Routes>
     <Route path="catalog" element={<CatalogView
     onHandlerAddProductCart={(product) => onHandlerAddProductCart(product)} //Lo recibe y lo pasa
-    />}/>
+    />} />
     <Route path="cart" element={(
         cartItems?.length <= 0 ?
         <div className="alert alert-warning">¡Ups, No hay productos en el carro de compras!</div>
